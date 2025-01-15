@@ -1,6 +1,9 @@
 
+'''In the future add a loop for 100x then track the avg hands before loss, avg hands won, avg money won, and avg overall profit'''
+
 import random
 from Baccarat import baccarat
+from Baccarat import deal
 
 def martinagale(money = 1600, base_bet =25, num_decks = 8, selection = "player"):
     #deck = [1,2,3,4,5,6,7,8,9,0,0,0,0] * 4
@@ -13,16 +16,12 @@ def martinagale(money = 1600, base_bet =25, num_decks = 8, selection = "player")
     bet = base_bet
     original_money = money
     while winner:
-
-        deck = [1,2,3,4,5,6,7,8,9,0,0,0,0] * 4
-        deck = deck * num_decks
-        random.shuffle(deck)
-        print(deck)
-
-        while len(deck) > 5:
+        deck = deal()
+        while len(deck) > 10:
             print("\n")
             print(selection)
             print("THIS IS THE BET", bet)
+            print(deck)
             results = baccarat(deck, discard, selection, bet)
             print(results)
             hands +=1
@@ -54,7 +53,10 @@ def martinagale(money = 1600, base_bet =25, num_decks = 8, selection = "player")
             print("END HAND", money, "PROF", profit)
 
             
-
-    return hands, profit
+    
+    return money, hands, profit
+#print(deal())
 
 print(martinagale(1600, 25))
+
+

@@ -7,9 +7,23 @@ This is going to be used to simulate the game along with test the Martingale str
 
 import random
 
+#set up initial deck shuffle and card burn
+def deal(num_decks = 8):
+    deck = [1,2,3,4,5,6,7,8,9,0,0,0,0] * 4
+    deck = deck * num_decks
+    random.shuffle(deck)
+    random.shuffle(deck)
+    random.shuffle(deck)
+    value = deck.pop()
+    if value == 0:
+        value = 10
+    for i in range(value):
+        value = deck.pop()
+    return deck
+
 def baccarat(deck:list, discard:list, selection = "player", bet = 25):
     #print(deck)
-    random.shuffle(deck)
+    #random.shuffle(deck)
     #print(deck)
 
     player = []
@@ -74,7 +88,7 @@ def baccarat(deck:list, discard:list, selection = "player", bet = 25):
 #if banker hand is less than 6 and player does not have 3rd card
     elif banker_value < 6:
         banker.append(deck.pop())
-        #print("banker flipped a", banker[2])
+        print("banker flipped a", banker[2])
         
 
     banker_value = sum(banker)
