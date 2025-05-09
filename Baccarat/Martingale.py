@@ -26,7 +26,7 @@ def martinagale(money = 1600, base_bet =25, num_decks = 8, selection = "player")
             print(results)
             hands +=1
             money -= bet 
-            print("HEREEEE",money)
+            #print("HEREEEE",money)
             
     
             if results[0]:
@@ -54,9 +54,22 @@ def martinagale(money = 1600, base_bet =25, num_decks = 8, selection = "player")
 
             
     
-    return money, hands, profit
+    return hands, profit
 #print(deal())
 
-print(martinagale(1600, 25))
 
+hands_avg = 0
+profit_avg = 0
+for i in range(100):
+    
+    attempt = martinagale(400, 25)
+    hands_avg += attempt[0]
+    profit_avg += attempt[1]
 
+hands_avg /= 100
+profit_avg /= 100
+print(hands_avg, profit_avg)
+
+#144.6 1605.0
+#156.24 1752.75
+#134.82 1493.0
