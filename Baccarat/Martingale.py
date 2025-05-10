@@ -6,6 +6,7 @@ from Baccarat import Baccarat
 from Player import Player
 #from Baccarat import deal
 
+#this is a test function to test the martingale strategy in baccarat
 def martinagale(money = 1600, base_bet =25, num_decks = 8, selection = "player"):
     #deck = [1,2,3,4,5,6,7,8,9,0,0,0,0] * 4
     #deck = deck * num_decks
